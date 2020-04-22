@@ -921,6 +921,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               break;
 
             case 'RR':
+              timeBlocks = this.processCalculationService.calculateByRR(this.processItems, this.quantum);
               break;
 
             default:
@@ -1246,6 +1247,34 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, ProcessSchedulingResultComponent_table_0_tr_12_Template, 13, 4, "tr", 6);
 
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "tr");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "td");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "AVG");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "td");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "td");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "td");
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -1257,6 +1286,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](12);
 
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r0.processSchedulingItems);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r0.averageWaitingTime);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r0.averageResponseTime);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx_r0.averageTurnaroundTime);
       }
     }
 
@@ -1286,6 +1327,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           });
           this.subscriptions.push(subscription);
         }
+      }, {
+        key: "findAverage",
+        value: function findAverage(propertySelctor) {
+          var average = this.processSchedulingItems.map(propertySelctor).reduce(function (previous, current) {
+            return previous + current;
+          }) / this.processSchedulingItems.length;
+          return average.toFixed(2);
+        }
+      }, {
+        key: "averageWaitingTime",
+        get: function get() {
+          return this.findAverage(function (x) {
+            return x.WaitingTime;
+          });
+        }
+      }, {
+        key: "averageResponseTime",
+        get: function get() {
+          return this.findAverage(function (x) {
+            return x.ResponseTime;
+          });
+        }
+      }, {
+        key: "averageTurnaroundTime",
+        get: function get() {
+          return this.findAverage(function (x) {
+            return x.TurnaroundTime;
+          });
+        }
       }]);
 
       return ProcessSchedulingResultComponent;
@@ -1303,7 +1373,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       consts: [["class", "table-bordered", 4, "ngIf"], [1, "table-bordered"], [1, "process-name-cell"], [1, "process-waiting-cell"], [1, "process-response-cell"], [1, "process-turnaround-cell"], [4, "ngFor", "ngForOf"]],
       template: function ProcessSchedulingResultComponent_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ProcessSchedulingResultComponent_table_0_Template, 13, 1, "table", 0);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ProcessSchedulingResultComponent_table_0_Template, 22, 4, "table", 0);
         }
 
         if (rf & 2) {
@@ -1391,6 +1461,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(ProcessTimeBlockComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
+      }, {
+        key: "width",
+        get: function get() {
+          return this.processTimeBlock.Duration * this.pixelPerSecond;
+        }
       }]);
 
       return ProcessTimeBlockComponent;
@@ -1436,7 +1511,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
 
         if (rf & 2) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("width", ctx.processTimeBlock.Duration * ctx.pixelPerSecond, "px");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵstyleProp"]("width", ctx.width, "px");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
@@ -1549,8 +1624,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           try {
             for (_iterator.s(); !(_step = _iterator.n()).done;) {
               var process = _step.value;
+
+              if (process.ArrivalTime > endTime) {
+                startTime = endTime;
+                endTime = process.ArrivalTime;
+                timeBlocks.push(new _models_process_time_block__WEBPACK_IMPORTED_MODULE_1__["ProcessTimeBlock"]('-', startTime, process.ArrivalTime));
+              }
+
               startTime = endTime;
-              endTime = endTime + process.BurstTime;
+              endTime = startTime + process.BurstTime;
               timeBlocks.push(new _models_process_time_block__WEBPACK_IMPORTED_MODULE_1__["ProcessTimeBlock"](process.Name, startTime, endTime));
             }
           } catch (err) {
@@ -1574,6 +1656,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _loop = function _loop() {
             var availableProcesses = _this3.filterAvailableProcesses(copiedProcesses, endTime);
 
+            if (availableProcesses.length === 0) {
+              var nextProcess = _this3.findProcessWithMinArrivalTime(copiedProcesses);
+
+              startTime = endTime;
+              endTime = nextProcess.ArrivalTime;
+              timeBlocks.push(new _models_process_time_block__WEBPACK_IMPORTED_MODULE_1__["ProcessTimeBlock"]('-', startTime, endTime));
+              availableProcesses = _this3.filterAvailableProcesses(copiedProcesses, endTime);
+            }
+
             var minBurstTime = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["min"])(availableProcesses.map(function (x) {
               return x.BurstTime;
             })); // Take the first process with min burst time
@@ -1582,7 +1673,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               return x.BurstTime === minBurstTime;
             });
             startTime = endTime;
-            endTime = endTime + process.BurstTime;
+            endTime = startTime + process.BurstTime;
             timeBlocks.push(new _models_process_time_block__WEBPACK_IMPORTED_MODULE_1__["ProcessTimeBlock"](process.Name, startTime, endTime));
 
             _this3.removeProcessItemFromCollection(process, copiedProcesses);
@@ -1608,15 +1699,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _loop2 = function _loop2() {
             var availableProcesses = _this4.filterAvailableProcesses(copiedProcesses, endTime);
 
+            if (availableProcesses.length === 0) {
+              var nextProcess = _this4.findProcessWithMinArrivalTime(copiedProcesses);
+
+              startTime = endTime;
+              endTime = nextProcess.ArrivalTime;
+              timeBlocks.push(new _models_process_time_block__WEBPACK_IMPORTED_MODULE_1__["ProcessTimeBlock"]('-', startTime, endTime));
+              availableProcesses = _this4.filterAvailableProcesses(copiedProcesses, endTime);
+            }
+
             var minRemainingTime = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["min"])(availableProcesses.map(function (x) {
               return x.BurstTime;
             }));
-            var minRemainingTimeProcess = copiedProcesses.find(function (x) {
+            var minRemainingTimeProcess = availableProcesses.find(function (x) {
               return x.BurstTime === minRemainingTime;
             });
 
             if (currentProcess === null) {
-              // First run
               currentProcess = minRemainingTimeProcess;
             } else if (currentProcess === minRemainingTimeProcess) {
               // Not pre-empted yet
@@ -1630,15 +1729,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             }
 
             if (currentProcess.BurstTime === 0) {
-              _this4.removeProcessItemFromCollection(currentProcess, copiedProcesses);
-            }
-
-            if (copiedProcesses.length === 0) {
-              // The last process has finished running
-              // But it was not captured by timeBlocks.push above
-              // Because it was the only process left so currentProcess === minRemainingTimeProcess
-              // So its run will be captured here
               timeBlocks.push(new _models_process_time_block__WEBPACK_IMPORTED_MODULE_1__["ProcessTimeBlock"](currentProcess.Name, startTime, endTime));
+
+              _this4.removeProcessItemFromCollection(currentProcess, copiedProcesses);
+
+              currentProcess = null;
+              startTime = endTime;
             }
           };
 
@@ -1659,7 +1755,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var endTime = 0;
 
           var _loop3 = function _loop3() {
-            var availableProcesses = _this5.filterAvailableProcesses(copiedProcesses, endTime); // 1 highest - n lowest
+            var availableProcesses = _this5.filterAvailableProcesses(copiedProcesses, endTime);
+
+            if (availableProcesses.length === 0) {
+              var nextProcess = _this5.findProcessWithMinArrivalTime(copiedProcesses);
+
+              startTime = endTime;
+              endTime = nextProcess.ArrivalTime;
+              timeBlocks.push(new _models_process_time_block__WEBPACK_IMPORTED_MODULE_1__["ProcessTimeBlock"]('-', startTime, endTime));
+              availableProcesses = _this5.filterAvailableProcesses(copiedProcesses, endTime);
+            } // 1 highest - n lowest
 
 
             var highestPriority = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["min"])(availableProcesses.map(function (x) {
@@ -1683,8 +1788,55 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "calculateByRR",
-        value: function calculateByRR(processItems) {
-          return [];
+        value: function calculateByRR(processes, quantum) {
+          var timeBlocks = []; // const copiedProcesses = cloneDeep(processes);
+          // const processQueue = [];
+          // let firstProcess = sortBy(copiedProcesses, x => x.ArrivalTime)[0];
+          // processQueue.push(firstProcess);
+          // this.removeProcessItemFromCollection(firstProcess, copiedProcesses);
+          // let startTime = 0;
+          // let endTime = 0;
+          // let currentProcess: ProcessItem = firstProcess;
+          // while (copiedProcesses.length !== 0)
+          // {
+          //     // At the moment when a new process comes but the current process runs out of time and not yet finishes
+          //     // This new process will be enqueued before putting current process to the back of the queue
+          //     let availableProcesses = this.filterAvailableProcesses(copiedProcesses, endTime);
+          //     if (availableProcesses.length === 0)
+          //     {
+          //         let nextProcess = this.findProcessWithMinArrivalTime(copiedProcesses);
+          //         startTime = endTime;
+          //         endTime = nextProcess.ArrivalTime;
+          //         timeBlocks.push(new ProcessTimeBlock('-', startTime, endTime));
+          //         availableProcesses = this.filterAvailableProcesses(copiedProcesses, endTime);
+          //     }
+          //     currentProcess.BurstTime -= 1;
+          //     endTime += 1;
+          //     for (let process of availableProcesses) {
+          //         processQueue.push(process);
+          //         this.removeProcessItemFromCollection(process, copiedProcesses);
+          //     }
+          //     if (currentProcess.BurstTime === 0) {
+          //         timeBlocks.push(new ProcessTimeBlock(currentProcess.Name, startTime, endTime));
+          //         startTime = endTime;
+          //         processQueue.shift();
+          //         if (processQueue.length > 0) {
+          //             currentProcess = processQueue[0];
+          //         }
+          //     } else {
+          //         let duration = endTime - startTime;
+          //         if (duration === quantum) {
+          //             timeBlocks.push(new ProcessTimeBlock(currentProcess.Name, startTime, endTime));
+          //             startTime = endTime;
+          //             // Move to the back of queue
+          //             let outOfTimeProcess = processQueue.shift();
+          //             processQueue.push(outOfTimeProcess);
+          //             currentProcess = processQueue[0];
+          //         }
+          //     }
+          // }
+
+          return timeBlocks;
         }
       }, {
         key: "calculateSchedulingResult",
@@ -1757,6 +1909,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           return availableProcesses;
+        }
+      }, {
+        key: "findProcessWithMinArrivalTime",
+        value: function findProcessWithMinArrivalTime(processes) {
+          var minArrivalTime = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["min"])(processes.map(function (x) {
+            return x.ArrivalTime;
+          }));
+          return processes.find(function (x) {
+            return x.ArrivalTime === minArrivalTime;
+          });
         }
       }]);
 
