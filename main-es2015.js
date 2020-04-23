@@ -129,6 +129,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_time_block_provider_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./services/time-block-provider-service */ "./src/app/services/time-block-provider-service.ts");
 /* harmony import */ var _process_scheduling_result_process_scheduling_result_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./process-scheduling-result/process-scheduling-result.component */ "./src/app/process-scheduling-result/process-scheduling-result.component.ts");
 /* harmony import */ var _services_process_scheduling_provider_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./services/process-scheduling-provider-service */ "./src/app/services/process-scheduling-provider-service.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/animations.js");
+/* harmony import */ var _angular_material_slider__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/material/slider */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/slider.js");
+
+
 
 
 
@@ -152,7 +156,9 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
     ], imports: [[
             _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"]
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
+            _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__["BrowserAnimationsModule"],
+            _angular_material_slider__WEBPACK_IMPORTED_MODULE_13__["MatSliderModule"]
         ]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, { declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
         _process_chart_process_chart_component__WEBPACK_IMPORTED_MODULE_5__["ProcessChartComponent"],
@@ -160,7 +166,9 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
         _process_time_block_process_time_block_component__WEBPACK_IMPORTED_MODULE_7__["ProcessTimeBlockComponent"],
         _process_scheduling_result_process_scheduling_result_component__WEBPACK_IMPORTED_MODULE_10__["ProcessSchedulingResultComponent"]], imports: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
         _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-        _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"]] }); })();
+        _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
+        _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__["BrowserAnimationsModule"],
+        _angular_material_slider__WEBPACK_IMPORTED_MODULE_13__["MatSliderModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](AppModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"],
         args: [{
@@ -174,7 +182,9 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector
                 imports: [
                     _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"],
                     _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                    _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"]
+                    _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
+                    _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_12__["BrowserAnimationsModule"],
+                    _angular_material_slider__WEBPACK_IMPORTED_MODULE_13__["MatSliderModule"]
                 ],
                 providers: [
                     _services_process_calculation_service__WEBPACK_IMPORTED_MODULE_8__["ProcessCalculationService"],
@@ -262,8 +272,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _services_time_block_provider_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/time-block-provider-service */ "./src/app/services/time-block-provider-service.ts");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _process_time_block_process_time_block_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../process-time-block/process-time-block.component */ "./src/app/process-time-block/process-time-block.component.ts");
+/* harmony import */ var _angular_material_slider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/material/slider */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/slider.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _process_time_block_process_time_block_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../process-time-block/process-time-block.component */ "./src/app/process-time-block/process-time-block.component.ts");
+
 
 
 
@@ -325,8 +337,8 @@ function ProcessChartComponent_div_0_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Pixel per second");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "input", 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProcessChartComponent_div_0_Template_input_ngModelChange_5_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r10); const ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r9.pixelPerSecond = $event; });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "mat-slider", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProcessChartComponent_div_0_Template_mat_slider_ngModelChange_5_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r10); const ctx_r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r9.pixelPerSecond = $event; });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](6, ProcessChartComponent_div_0_app_process_time_block_6_Template, 1, 2, "app-process-time-block", 3);
@@ -352,7 +364,7 @@ function ProcessChartComponent_div_0_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r0.pixelPerSecond);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("min", 0)("max", 100)("step", 1)("thumbLabel", true)("ngModel", ctx_r0.pixelPerSecond);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r0.processTimeBlocks);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
@@ -379,11 +391,11 @@ class ProcessChartComponent {
     }
 }
 ProcessChartComponent.ɵfac = function ProcessChartComponent_Factory(t) { return new (t || ProcessChartComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_time_block_provider_service__WEBPACK_IMPORTED_MODULE_1__["TimeBlockProviderService"])); };
-ProcessChartComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ProcessChartComponent, selectors: [["app-process-chart"]], decls: 1, vars: 1, consts: [[4, "ngIf"], [1, "scroll-container"], ["type", "number", 3, "ngModel", "ngModelChange"], [3, "processTimeBlock", "pixelPerSecond", 4, "ngFor", "ngForOf"], [3, "width", 4, "ngFor", "ngForOf"], [3, "processTimeBlock", "pixelPerSecond"], ["class", "start-time-text", 4, "ngIf"], [1, "end-time-text"], [1, "start-time-text"]], template: function ProcessChartComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ProcessChartComponent_div_0_Template, 17, 4, "div", 0);
+ProcessChartComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ProcessChartComponent, selectors: [["app-process-chart"]], decls: 1, vars: 1, consts: [[4, "ngIf"], [1, "scroll-container"], [1, "slider", 3, "min", "max", "step", "thumbLabel", "ngModel", "ngModelChange"], [3, "processTimeBlock", "pixelPerSecond", 4, "ngFor", "ngForOf"], [3, "width", 4, "ngFor", "ngForOf"], [3, "processTimeBlock", "pixelPerSecond"], ["class", "start-time-text", 4, "ngIf"], [1, "end-time-text"], [1, "start-time-text"]], template: function ProcessChartComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ProcessChartComponent_div_0_Template, 17, 8, "div", 0);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.processTimeBlocks.length !== 0);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _process_time_block_process_time_block_component__WEBPACK_IMPORTED_MODULE_4__["ProcessTimeBlockComponent"]], styles: [".scroll-container[_ngcontent-%COMP%] {\r\n    overflow-x: auto;\r\n    white-space: nowrap;\r\n}\r\n\r\ntable[_ngcontent-%COMP%] {\r\n    border-collapse: collapse;\r\n    border: 1px solid black;\r\n}\r\n\r\ntd[_ngcontent-%COMP%], th[_ngcontent-%COMP%] {\r\n    border: 1px solid black;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvY2Vzcy1jaGFydC9wcm9jZXNzLWNoYXJ0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxnQkFBZ0I7SUFDaEIsbUJBQW1CO0FBQ3ZCOztBQUVBO0lBQ0kseUJBQXlCO0lBQ3pCLHVCQUF1QjtBQUMzQjs7QUFFQTtJQUNJLHVCQUF1QjtBQUMzQiIsImZpbGUiOiJzcmMvYXBwL3Byb2Nlc3MtY2hhcnQvcHJvY2Vzcy1jaGFydC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnNjcm9sbC1jb250YWluZXIge1xyXG4gICAgb3ZlcmZsb3cteDogYXV0bztcclxuICAgIHdoaXRlLXNwYWNlOiBub3dyYXA7XHJcbn1cclxuXHJcbnRhYmxlIHtcclxuICAgIGJvcmRlci1jb2xsYXBzZTogY29sbGFwc2U7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCBibGFjaztcclxufVxyXG5cclxudGQsIHRoIHtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG59Il19 */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_material_slider__WEBPACK_IMPORTED_MODULE_3__["MatSlider"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["NgModel"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgForOf"], _process_time_block_process_time_block_component__WEBPACK_IMPORTED_MODULE_5__["ProcessTimeBlockComponent"]], styles: [".scroll-container[_ngcontent-%COMP%] {\r\n    overflow-x: auto;\r\n    white-space: nowrap;\r\n}\r\n\r\ntable[_ngcontent-%COMP%] {\r\n    border-collapse: collapse;\r\n    border: 1px solid black;\r\n}\r\n\r\ntd[_ngcontent-%COMP%], th[_ngcontent-%COMP%] {\r\n    border: 1px solid black;\r\n}\r\n\r\n.slider[_ngcontent-%COMP%] {\r\n    height: 60px;\r\n    width: 300px;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvY2Vzcy1jaGFydC9wcm9jZXNzLWNoYXJ0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxnQkFBZ0I7SUFDaEIsbUJBQW1CO0FBQ3ZCOztBQUVBO0lBQ0kseUJBQXlCO0lBQ3pCLHVCQUF1QjtBQUMzQjs7QUFFQTtJQUNJLHVCQUF1QjtBQUMzQjs7QUFFQTtJQUNJLFlBQVk7SUFDWixZQUFZO0FBQ2hCIiwiZmlsZSI6InNyYy9hcHAvcHJvY2Vzcy1jaGFydC9wcm9jZXNzLWNoYXJ0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc2Nyb2xsLWNvbnRhaW5lciB7XHJcbiAgICBvdmVyZmxvdy14OiBhdXRvO1xyXG4gICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcclxufVxyXG5cclxudGFibGUge1xyXG4gICAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xyXG59XHJcblxyXG50ZCwgdGgge1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgYmxhY2s7XHJcbn1cclxuXHJcbi5zbGlkZXIge1xyXG4gICAgaGVpZ2h0OiA2MHB4O1xyXG4gICAgd2lkdGg6IDMwMHB4O1xyXG59Il19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ProcessChartComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -433,7 +445,7 @@ function ProcessInputComponent_div_2_Template(rf, ctx) { if (rf & 1) {
     const algorithm_r3 = ctx.$implicit;
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", algorithm_r3)("ngModel", ctx_r0.selectedAlgorithm)("disabled", algorithm_r3 === "RR");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("value", algorithm_r3)("ngModel", ctx_r0.selectedAlgorithm);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", algorithm_r3, " ");
 } }
@@ -569,10 +581,10 @@ class ProcessInputComponent {
     }
 }
 ProcessInputComponent.ɵfac = function ProcessInputComponent_Factory(t) { return new (t || ProcessInputComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_process_calculation_service__WEBPACK_IMPORTED_MODULE_2__["ProcessCalculationService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_time_block_provider_service__WEBPACK_IMPORTED_MODULE_3__["TimeBlockProviderService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_process_scheduling_provider_service__WEBPACK_IMPORTED_MODULE_4__["ProcessSchedulingProviderService"])); };
-ProcessInputComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ProcessInputComponent, selectors: [["app-process-input"]], decls: 24, vars: 3, consts: [[1, "row"], [1, "col-3"], [4, "ngFor", "ngForOf"], [4, "ngIf"], [1, "col-9"], [1, "table-bordered"], [1, "delete-button-cell"], [3, "click"], [1, "process-name-cell"], [1, "process-arrival-cell"], [1, "process-burst-cell"], [1, "process-priority-cell"], ["type", "radio", "name", "algorithm", 3, "value", "ngModel", "disabled", "ngModelChange"], ["type", "number", 3, "ngModel", "ngModelChange"], [1, "delete-button-cell", 3, "click"], ["type", "text", "disabled", "", 1, "process-name-cell", 3, "ngModel", "ngModelChange"], ["type", "number", 1, "process-arrival-cell", 3, "ngModel", "ngModelChange"], ["type", "number", 1, "process-burst-cell", 3, "ngModel", "ngModelChange"], ["type", "number", 1, "process-priority-cell", 3, "ngModel", "disabled", "ngModelChange"]], template: function ProcessInputComponent_Template(rf, ctx) { if (rf & 1) {
+ProcessInputComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ProcessInputComponent, selectors: [["app-process-input"]], decls: 24, vars: 3, consts: [[1, "row"], [1, "col-3"], [4, "ngFor", "ngForOf"], [4, "ngIf"], [1, "col-9"], [1, "table-bordered"], [1, "delete-button-cell"], [3, "click"], [1, "process-name-cell"], [1, "process-arrival-cell"], [1, "process-burst-cell"], [1, "process-priority-cell"], ["type", "radio", "name", "algorithm", 3, "value", "ngModel", "ngModelChange"], ["type", "number", 3, "ngModel", "ngModelChange"], [1, "delete-button-cell", 3, "click"], ["type", "text", "disabled", "", 1, "process-name-cell", 3, "ngModel", "ngModelChange"], ["type", "number", 1, "process-arrival-cell", 3, "ngModel", "ngModelChange"], ["type", "number", 1, "process-burst-cell", 3, "ngModel", "ngModelChange"], ["type", "number", 1, "process-priority-cell", 3, "ngModel", "disabled", "ngModelChange"]], template: function ProcessInputComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProcessInputComponent_div_2_Template, 3, 4, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProcessInputComponent_div_2_Template, 3, 3, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, ProcessInputComponent_div_3_Template, 4, 1, "div", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "div", 4);
@@ -984,52 +996,47 @@ class ProcessCalculationService {
     }
     calculateByRR(processes, quantum) {
         const timeBlocks = [];
-        // const copiedProcesses = cloneDeep(processes);
-        // const processQueue = [];
-        // let firstProcess = sortBy(copiedProcesses, x => x.ArrivalTime)[0];
-        // processQueue.push(firstProcess);
-        // this.removeProcessItemFromCollection(firstProcess, copiedProcesses);
-        // let startTime = 0;
-        // let endTime = 0;
-        // let currentProcess: ProcessItem = firstProcess;
-        // while (copiedProcesses.length !== 0)
-        // {
-        //     // At the moment when a new process comes but the current process runs out of time and not yet finishes
-        //     // This new process will be enqueued before putting current process to the back of the queue
-        //     let availableProcesses = this.filterAvailableProcesses(copiedProcesses, endTime);
-        //     if (availableProcesses.length === 0)
-        //     {
-        //         let nextProcess = this.findProcessWithMinArrivalTime(copiedProcesses);
-        //         startTime = endTime;
-        //         endTime = nextProcess.ArrivalTime;
-        //         timeBlocks.push(new ProcessTimeBlock('-', startTime, endTime));
-        //         availableProcesses = this.filterAvailableProcesses(copiedProcesses, endTime);
-        //     }
-        //     currentProcess.BurstTime -= 1;
-        //     endTime += 1;
-        //     for (let process of availableProcesses) {
-        //         processQueue.push(process);
-        //         this.removeProcessItemFromCollection(process, copiedProcesses);
-        //     }
-        //     if (currentProcess.BurstTime === 0) {
-        //         timeBlocks.push(new ProcessTimeBlock(currentProcess.Name, startTime, endTime));
-        //         startTime = endTime;
-        //         processQueue.shift();
-        //         if (processQueue.length > 0) {
-        //             currentProcess = processQueue[0];
-        //         }
-        //     } else {
-        //         let duration = endTime - startTime;
-        //         if (duration === quantum) {
-        //             timeBlocks.push(new ProcessTimeBlock(currentProcess.Name, startTime, endTime));
-        //             startTime = endTime;
-        //             // Move to the back of queue
-        //             let outOfTimeProcess = processQueue.shift();
-        //             processQueue.push(outOfTimeProcess);
-        //             currentProcess = processQueue[0];
-        //         }
-        //     }
-        // }
+        const copiedProcesses = Object(lodash__WEBPACK_IMPORTED_MODULE_2__["cloneDeep"])(processes);
+        const processQueue = [];
+        let startTime = 0;
+        let endTime = 0;
+        let firstProcess = copiedProcesses[0];
+        processQueue.push(firstProcess);
+        this.removeProcessItemFromCollection(firstProcess, copiedProcesses);
+        while (copiedProcesses.length !== 0 || processQueue.length !== 0) {
+            if (processQueue.length === 0) {
+                let nextProcess = this.findProcessWithMinArrivalTime(copiedProcesses);
+                startTime = endTime;
+                endTime = nextProcess.ArrivalTime;
+                timeBlocks.push(new _models_process_time_block__WEBPACK_IMPORTED_MODULE_1__["ProcessTimeBlock"]('-', startTime, endTime));
+                processQueue.push(nextProcess);
+                this.removeProcessItemFromCollection(nextProcess, copiedProcesses);
+            }
+            let currentProcess = processQueue[0];
+            while (true) {
+                let arrivedInTimeSliceProcesses = this.filterAvailableProcesses(copiedProcesses, endTime);
+                for (let process of arrivedInTimeSliceProcesses) {
+                    processQueue.push(process);
+                    this.removeProcessItemFromCollection(process, copiedProcesses);
+                }
+                endTime += 1;
+                currentProcess.BurstTime -= 1;
+                if (currentProcess.BurstTime === 0) {
+                    timeBlocks.push(new _models_process_time_block__WEBPACK_IMPORTED_MODULE_1__["ProcessTimeBlock"](currentProcess.Name, startTime, endTime));
+                    startTime = endTime;
+                    processQueue.shift();
+                    break;
+                }
+                let duration = endTime - startTime;
+                if (duration === quantum) {
+                    timeBlocks.push(new _models_process_time_block__WEBPACK_IMPORTED_MODULE_1__["ProcessTimeBlock"](currentProcess.Name, startTime, endTime));
+                    startTime = endTime;
+                    let outOfTimeProcess = processQueue.shift();
+                    processQueue.push(outOfTimeProcess);
+                    break;
+                }
+            }
+        }
         return timeBlocks;
     }
     calculateSchedulingResult(timeBlocks, processes) {
